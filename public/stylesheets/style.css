@@ -1,0 +1,93 @@
+table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 5px;
+}
+
+.topLine {
+  width: 15px;
+  font-size: 15px;
+  word-wrap: break-word;
+  background-color: #d9d9d9;
+}
+
+.leftLine {
+  background-color: #d9d9d9;
+}
+
+.cell0 {
+  background-color: #d9d9d9;
+}
+
+.toggled {
+  background-color: #8000ff;
+  animation-name: toggle;
+  animation-duration: 1.5s;
+  animation-delay: 0;
+  animation-iteration-count: 1;
+  animation-direction: alternate;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+}
+@keyframes toggle {
+  0% {
+    transform: scale(0.3);
+    background-color: #a64dff;
+    border-radius: 100%;
+  }
+
+  50% {
+    background-color: #8000ff;
+  }
+
+  75% {
+    transform: scale(1.2);
+    background-color: #330066;
+  }
+
+  100% {
+    transform: scale(1);
+    background-color: #000000;
+  }
+}
+
+.component {
+  border: 1px solid black;
+  padding: 10px;
+  margin: auto;
+  box-shadow: 5px 10px;
+  width: 590px;
+  border-radius: 20px;
+  background-color: white;
+}
+
+.header {
+  border: 1px solid black;
+  padding: 10px;
+  width: 562px;
+}
+.nav {
+  magin: auto;
+  display: flex;
+}
+.title {
+  margin-bottom: 10px;
+  font-family: "Quicksand";
+  font-size: 25px;
+}
+button {
+  margin: 1px;
+}
+
+body {
+  background: rgb(53, 9, 60);
+  background: linear-gradient(
+    169deg,
+    rgba(53, 9, 60, 0.9037990196078431) 15%,
+    rgba(105, 24, 83, 0.8281687675070029) 54%,
+    rgba(60, 18, 74, 0.9122023809523809) 78%
+  );
+}

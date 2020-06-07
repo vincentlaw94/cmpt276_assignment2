@@ -3,8 +3,36 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CMPT276 Assignment 1: Puzzle</title>
+    <link rel="stylesheet" href="./stylesheets/style.css" />
+    <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
   </head>
   <body>
-    <div class="puzzle-board" />
+    <div class = "component">
+    <div class="header">
+      <div class="title">CMPT 276 Assignment 1: Puzzle</div>
+        <div class="nav">
+        <button id="default">SELECT DEFAULT</button>
+        <label for="files" class="btn" style="background-color: #e6ccff; border: 1px solid grey; margin-left: 5px; border-radius: 5px; text-align: center;"
+          >Upload Puzzle</label
+        >
+        <input
+          id="files"
+          style="visibility: hidden;"
+          type="file"
+          accept=".csv"
+        />
+        <button id="solution">SHOW SOLUTION</button>
+        <button id="reset">RESET</button>
+        
+      </div>  
+      </div>
+
+      
+    
+    <div id="puzzle-board" />
+    <table id="puzzle"></table>
+  </div>
+</div>
+    <script src="./script.js"></script>
   </body>
 </html>
