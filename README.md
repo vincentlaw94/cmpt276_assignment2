@@ -1,39 +1,30 @@
-# node-js-getting-started
+# Puzzle Game
 
-A barebones Node.js app using [Express 4](http://expressjs.com/).
+- This puzzle is made up of a n by m table containing numbers are given at the top (and left side) of the table to indicate the number of unbroken“marked”lines in each column (and row).
 
-This application supports the [Getting Started on Heroku with Node.js](https://devcenter.heroku.com/articles/getting-started-with-nodejs) article - check it out.
+- The player’s job is to solve the puzzle by filling the cells of the table accordingly.
 
-## Running Locally
+## Requirements
 
-Make sure you have [Node.js](http://nodejs.org/) and the [Heroku CLI](https://cli.heroku.com/) installed.
+- [ ] The puzzle board must be represented using a `<table>` tag.
+- [ ] There should be a button to reset the puzzle
+- [ ] There should be a button to reveal the answer (to save me the time to solve it :P)
+- [ ] At least half of the rows and half of the columns must contain a break in lines (i.e. the numbers along the top and along the left side cannot all be single values :)
+- [ ] You may not use client-side librariessuch as jQuery or Bootstrap. I will relax some of these requirements in the next assignment and project.
+- [ ] Add additional features that will make this app more usable. Part of your mark will be based on these features. For example, you may want to add
+  - [ ] Click and drag along a row or column to flip the tiles (in addition to single clicks)
+  - [ ] Reading CSV file of values (the schema is up to you) and generating a corresponding game board.
 
-```sh
-$ git clone https://github.com/heroku/node-js-getting-started.git # or clone your own fork
-$ cd node-js-getting-started
-$ npm install
-$ npm start
-```
+## Marking Scheme
 
-Your app should now be running on [localhost:5000](http://localhost:5000/).
+- [ ] Application deployed to Heroku (3 marks)
 
-## Deploying to Heroku
+- [ ] Tableset up properlyfor your puzzle (2 marks)
 
-```
-$ heroku create
-$ git push heroku master
-$ heroku open
-```
-or
+- [ ] Ability to toggle the table cells (3 marks)
 
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+- [ ] reset button working (2 marks)
 
-## Documentation
+- [ ] show solutionbutton working (2 marks)
 
-For more information about using Node.js on Heroku, see these Dev Center articles:
-
-- [Getting Started on Heroku with Node.js](https://devcenter.heroku.com/articles/getting-started-with-nodejs)
-- [Heroku Node.js Support](https://devcenter.heroku.com/articles/nodejs-support)
-- [Node.js on Heroku](https://devcenter.heroku.com/categories/nodejs)
-- [Best Practices for Node.js Development](https://devcenter.heroku.com/articles/node-best-practices)
-- [Using WebSockets on Heroku with Node.js](https://devcenter.heroku.com/articles/node-websockets)
+- [ ] detecting correctness of final solution (i.e. the “CONGRATULATIONS” message) (4 marks)
