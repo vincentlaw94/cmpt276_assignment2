@@ -55,6 +55,7 @@ function toggleForm(e) {
     table.className = "container";
   }
 }
+state = { previous: undefined, tr: undefined };
 function selectRow(e) {
   var previous = document.getElementsByClassName("selected");
 
@@ -62,6 +63,13 @@ function selectRow(e) {
   e.target.parentElement.className = "selected";
 }
 
+personid = new Array();
+
+function personSelect(id) {
+  var current = document.getElementById(id);
+  console.log(current);
+  current.classList.toggle("active");
+}
 window.onload = function () {
   // Make the DIV element draggable:
   dragElement(document.getElementById("menu"));
@@ -89,15 +97,40 @@ window.onload = function () {
         newPerson.classList.add("fa-female");
       }
 
-      newPerson.id = id;
+      newPerson.id = "person-" + id;
+
+      personid.push(id);
       newPerson.style.fontSize = list[2];
       newPerson.style.position = "absolute";
       newPerson.style.left = Math.random() * 1500;
-      newPerson.style.top = Math.random() * 1500;
+      newPerson.style.top = Math.random() * 800;
       board.appendChild(newPerson);
-      console.log(newPerson);
+
       newPerson.addEventListener("click", (e) => {
-        console.log(e.target.id);
+        var tr = document.getElementById(e.target.id);
+        var id = tr.id.substr(7);
+        var row = document.querySelectorAll("tr");
+        row.forEach((e) => {
+          if (e.id == id) {
+            if (this.state.tr == undefined) {
+              this.state.tr = e;
+              console.log(this.state.tr);
+              e.classList.toggle("selected");
+            } else {
+              console.log(this.state.tr.classList.toggle("selected"));
+              e.classList.toggle("selected");
+              this.state.tr = e;
+            }
+          }
+        });
+        if (this.state.previous == undefined) {
+          this.state.previous = e.target;
+          e.target.classList.toggle("active");
+        } else {
+          this.state.previous.classList.toggle("active");
+          e.target.classList.toggle("active");
+          this.state.previous = e.target;
+        }
       });
     }
   });
