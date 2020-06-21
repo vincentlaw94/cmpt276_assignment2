@@ -1,8 +1,15 @@
 # CRUD APP
 
-- This puzzle is made up of a n by m table containing numbers are given at the top (and left side) of the table to indicate the number of unbroken“marked”lines in each column (and row).
+- Basic crud for "person" database. Built with Nodejs as a backend server and HTML, CSS, and Javascript as frontend.
 
-- The player’s job is to solve the puzzle by filling the cells of the table accordingly.
+## Features
+- draggable window
+- display of each "person" in database (i.e. spreadsheet table, and person object displayed on the back of the webpage)
+- Form to create new person
+- Form to edit person
+- button to delete person
+
+
 
 ## Requirements
 
