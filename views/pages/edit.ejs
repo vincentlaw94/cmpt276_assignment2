@@ -2,7 +2,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../../stylesheets/style1.css" />
+    <link rel="stylesheet" href="../../stylesheets/edit.css" />
     <link href='https://fonts.googleapis.com/css?family=Permanent Marker' rel='stylesheet'>
     
 
@@ -13,27 +13,27 @@
     <title>Assignment 2</title>
   </head>
   <body>
-    <div id="board">
-      <% rows.forEach(function(r) { %>
-                
-      <div className="person" id = '<%= r.id %>'' value="<%=r.height%>"></div>
-      <% }); %>
+    <div class="board">
       <div id="menu">
         <div id="drag-window">
-        <div class='title'>Society Stimulator</div>
-      </div>
+            <div class='title'>Edit Attribute</div>
+          </div>
         <div id="toggle-form" >
           <button class = "show-plus-btn" id ='plus-btn'>
             <i class="fas fa-plus" ></i>
           </button>
-          <div class="hide-form" id='form'>
-            <form class= "form-wrapper" action="/addperson" method="post">
+          <% rows.forEach(function(r) { %>
+            <div id ="genderValue" value = "<%= r.gender %>" ></div>
+                <div id ="typeValue" value = "<%= r.type %>" ></div>
+          <div class="show-form" id='form'>
+            
+            <form class= "form-wrapper" action="/updateperson/<%= r.id %>" method="post">
               <div class="top-row">
                 <div class="nameForm">
                 
                   <label for="name">NAME: </label>
                 
-          <input type="text" name="name" placeholder="" required/>
+          <input type="text" name="name" value="<%= r.name %>" required/>
         
       </div>
       <div class='ageForm'>
@@ -42,7 +42,7 @@
                 <label for="age">AGE: </label>
               
            
-          <input type="number" name="age" min="1" max="150" required/>
+          <input type="number" name="age" min="1" max="150" value="<%= r.age %>" required/>
         
       </div>
       <div class="heightForm">
@@ -50,8 +50,8 @@
           <label for="height">Height: </label>
         
        
-          <input  type="range" name="heightInput" min = "0" max = "250" oninput="heightOutput.value = heightInput.value"/>
-          <output name="heightOutput" id="heightOutput">125</output> cm
+          <input  type="range" name="heightInput" min = "0" max = "250"   oninput="heightOutput.value = heightInput.value"/>
+          <output name="heightOutput" id="heightOutput"><%= r.height %></output> cm
         
       </div>
           
@@ -75,7 +75,7 @@
               </div>
               <div class='typeForm'>
                 <div class="four col">
-                  <input type="radio" name="r1" id="r1" value="A" checked>
+                  <input type="radio" name="r1" id="r1" value="A"checked>
                   <label for="r1">
                     <h4>Type A</h4>
                   </label>
@@ -101,62 +101,19 @@
                 
               </div>
               <div class='footForm'>
-              <label  id='cancel-btn'>Cancel</label>
-              <button type="submit" id='create-btn'/>Create new person</button>
+              
+              <button type="submit" id='create-btn'/>Save</button>
             </div>
             </form>
+            <button  id='cancel-btn'>Cancel</label>
+            <% }); %>
           </div>
         </div>
-        <div class="container scroll-window-wrapper" id="table">
-          <div class='scroll-window'>
-            
-          <table cellpadding="0" cellspacing="0" border="0">
-            <thead>
-              <tr>
-            <th>Name</th>
-            
-            <th>Age</th>
-            <th>Height</th>
-            <th>Gender</th>
-            <th>Type</th>
-            
-            <th><div></div></th>
-          </tr>
-          </thead>           
-            <tbody>
-              <% rows.forEach(function(r) { %>
-                
-                <tr id ='<%= r.id %>''>  
-                  <td><%= r.name %></td>
-                  <td><%= r.age %></td>
-                  <td><%= r.height %></td>
-                  <td><%= r.gender %></td>
-                  <td><%= r.type %></td>
-                  
-
-                  <td>
-                    
-                    <button class="edit-btn" id="edit-btn" value='<%= r.id %>''>Edit Attributes</button>
-                
-                    <form method="post" action = "/deleteperson/<%=r.id%>">
-                    <button class="delete-btn" id="delete-btn" type='submit'>Delete</button>			
-                  </form>
-                  </td>
-
-                
-                </tr>
-                <% }); %>
-              
-              
-             
-                          
-          </tbody>
-          </table>
-        </div>
-        </div>
+        
+       
       </div>
     </div>
 
-    <script src="../../script1.js"></script>
+    <script src="../../edit.js"></script>
   </body>
 </html>

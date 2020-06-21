@@ -1,0 +1,425 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500&display=swap");
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  background: #eee;
+}
+body {
+  font-family: "Noto Sans TC", sans-serif;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#person {
+}
+.title {
+  margin-top: 25px;
+  font-family: "Permanent Marker";
+
+  font-size: 50px;
+  text-transform: uppercase;
+  color: transparent;
+  background: linear-gradient(
+    to left,
+    #1e5799,
+    #2ce0bf,
+    #76dd2c,
+    #dba62b,
+    #e02cbf,
+    #1e5799
+  );
+  background-size: 1000px 100%;
+  animation: bg 75s linear infinite;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+@keyframes bg {
+  0% {
+    background-position-x: 0;
+  }
+  100% {
+    background-position-x: 10000px;
+  }
+}
+
+input[type="radio"] {
+  display: none;
+}
+button {
+  transition: transform 80ms ease-in;
+}
+button:active {
+  transform: scale(0.95);
+}
+button:focus {
+  outline: none;
+}
+div#a {
+  width: 50px;
+  height: 50px;
+  background-color: red;
+  position: absolute;
+}
+.edit-btn {
+  margin-right: 10px;
+  background-color: yellowgreen;
+  color: white;
+  text-align: center;
+  transition: transform 80ms ease-in;
+}
+.delete-btn {
+  margin-left: 5px;
+  color: white;
+  background-color: tomato;
+  text-align: center;
+  transition: transform 80ms ease-in;
+}
+.field-wrap {
+  position: relative;
+  margin-bottom: 40px;
+}
+#menu {
+  position: absolute;
+  top: 200px;
+  left: 525px;
+  z-index: 9;
+  background: rgb(50, 60, 80);
+  background: linear-gradient(
+    0deg,
+    rgba(50, 60, 80, 1) 4%,
+    rgba(14, 17, 23, 1) 63%
+  );
+  border-radius: 10px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  width: 700px;
+
+  margin: auto;
+  display: block;
+
+  height: 500px;
+
+  text-align: center;
+  opacity: 0.9;
+}
+#drag-window {
+  cursor: move;
+  z-index: 10;
+}
+
+.show-plus-btn {
+  background-color: #34cb97;
+  border: none;
+  color: white;
+
+  font-size: 27px;
+  margin: 20px;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+  display: inline;
+  transition: transform 80ms ease-in;
+}
+.show-plus-btn:hover {
+  filter: brightness(1.2);
+}
+
+.hide-plus-btn {
+  background-color: #34cb97;
+  border: none;
+  color: white;
+
+  font-size: 27px;
+  margin: 20px;
+  border-radius: 50%;
+  animation-name: transition;
+  animation-fill-mode: forwards;
+  animation-duration: 200ms;
+}
+@keyframes transition {
+  from {
+    border-radius: 50%;
+  }
+  to {
+    color: transparent;
+    width: 650px;
+    height: 1px;
+    border-radius: 0%;
+    pointer-events: none;
+  }
+}
+
+.show-form {
+  display: block;
+}
+@keyframes form {
+  from {
+    height: 0px;
+  }
+  to {
+    height: 500px;
+  }
+}
+
+.hide-form {
+  display: none;
+}
+#cancel-btn {
+  color: #white;
+  font-weight: bold;
+  padding: 0.6em 1em;
+  border: 1px solid white;
+  border-radius: 50em;
+  background: transparent;
+  display: inline;
+}
+
+#create-btn {
+  color: white;
+  font-weight: bold;
+  padding: 0.6em 1em;
+  border: 1px solid rgba(#fff, 0.6);
+  border-radius: 50em;
+  background: #d76666;
+  border: none;
+}
+table {
+  text-align: left;
+  border-collapse: collapse;
+
+  margin: auto;
+
+  border-radius: 50%;
+  width: 650px;
+}
+.header {
+  table-layout: fixed;
+}
+
+.container th h1 {
+  font-weight: bold;
+  font-size: 1em;
+  text-align: left;
+  color: #185875;
+}
+
+.container td {
+  font-weight: normal;
+  font-size: 1em;
+}
+thead {
+  pointer-events: none;
+}
+
+.container {
+  text-align: left;
+
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  display: table;
+}
+.container thead th {
+  position: sticky;
+  top: 0;
+}
+.container td,
+.container th {
+  padding: 20px 15px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 12px;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+/* Background-color of the odd rows */
+.container tr:nth-child(odd) {
+  background-color: #323c50;
+}
+
+/* Background-color of the even rows */
+.container tr:nth-child(even) {
+  background-color: #2c3446;
+}
+
+.container th {
+  background-color: #1f2739;
+  cursor: default;
+}
+
+.container td:first-child {
+  color: #fb667a;
+}
+
+.container tr:hover:not(thead) {
+  background-color: #464a52;
+
+  cursor: pointer;
+}
+
+tr.selected:not(.theader) {
+  background-color: #8f3d48;
+
+  font-weight: bold;
+
+  box-shadow: #fb667a -1px 1px, #fb667a -2px 2px, #fb667a -3px 3px,
+    #fb667a -4px 4px, #fb667a -5px 5px, #fb667a -6px 6px;
+  transform: translate3d(6px, -6px, 0);
+
+  transition-delay: 0s;
+  transition-duration: 0.4s;
+  transition-property: all;
+  transition-timing-function: line;
+}
+
+/*wrapper element so column padding doesn't affect fixed header background*/
+.scroll-window-wrapper {
+  position: relative;
+}
+/* element containing the table */
+.scroll-window {
+  height: 22rem;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+/*fixed header background*/
+td.text-right {
+  width: 16rem;
+}
+
+.form-wrapper input:focus,
+textarea:focus {
+  background: rgba(255, 255, 255, 0.3);
+  border: none;
+
+  transition: background 0.5s ease;
+}
+.form-wrapper label,
+.form-wrapper output,
+.form-wrapper {
+  font-weight: 400;
+
+  font-size: 15px;
+
+  color: rgba(255, 255, 255, 0.7);
+  margin-right: 5px;
+}
+.nameForm input {
+  color: #ccc;
+  font-weight: bold;
+  width: 200px;
+  height: 35px;
+  padding-left: 15px;
+  border: none;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  background: rgba(255, 255, 255, 0.2);
+}
+.ageForm input {
+  color: #ccc;
+  font-weight: bold;
+  width: 60px;
+  height: 35px;
+  padding-left: 15px;
+  border: none;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  margin-left: 12px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.top-row {
+  display: grid;
+  grid-template-columns: 200px 1fr 1fr;
+
+  margin-left: 250px;
+  justify-items: left;
+}
+
+.nameForm {
+  grid-column: 2 span;
+}
+.ageForm {
+  grid-column: 2 span;
+}
+.heightForm {
+  grid-column: 3 span;
+}
+
+.typeForm {
+  display: grid;
+  grid-template-columns: repeat(5, 150px);
+  grid-auto-rows: 100px;
+  grid-column-gap: 15px;
+  margin-left: 30px;
+}
+
+.typeForm input[type="radio"] {
+  display: none;
+}
+
+.typeForm input[type="radio"] + label {
+  display: block;
+  border: 1px solid #f9ecf2;
+  width: 100%;
+  max-width: 100%;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  cursor: pointer;
+  position: relative;
+}
+
+.typeForm input[type="radio"]:checked + label:before {
+  display: block;
+}
+
+.typeForm input[type="radio"] + label h4 {
+  margin: 15px;
+}
+
+.typeForm input[type="radio"]:checked + label {
+  background-color: #8f3d48;
+
+  font-weight: bold;
+
+  box-shadow: #fb667a -1px 1px, #fb667a -2px 2px, #fb667a -3px 3px,
+    #fb667a -4px 4px, #fb667a -5px 5px, #fb667a -6px 6px;
+  transform: translate3d(6px, -6px, 0);
+
+  transition-delay: 0s;
+  transition-duration: 0.4s;
+  transition-property: all;
+  transition-timing-function: line;
+}
+
+.typeForm input[type="radio"]:checked + label h4 {
+  color: #ccc;
+}
+
+.genderForm input[type="radio"] + label {
+  font-size: 40px;
+  width: 100%;
+  max-width: 100%;
+  padding: 10 10 10 10;
+  cursor: pointer;
+  position: relative;
+}
+
+.genderForm input[type="radio"]:checked + label {
+  font-weight: bold;
+  color: #fb667a;
+
+  transition-delay: 0s;
+  transition-duration: 0.4s;
+  transition-property: all;
+  transition-timing-function: line;
+}

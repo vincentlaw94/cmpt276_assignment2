@@ -2,9 +2,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../../stylesheets/style1.css" />
+    <link rel="stylesheet" href="./stylesheets/style1.css" />
     <link href='https://fonts.googleapis.com/css?family=Permanent Marker' rel='stylesheet'>
-    
+    <script src="jquery-3.5.1.min.js"></script>
 
     <script
       src="https://kit.fontawesome.com/fcf4fbd4be.js"
@@ -13,15 +13,9 @@
     <title>Assignment 2</title>
   </head>
   <body>
-    <div id="board">
-      <% rows.forEach(function(r) { %>
-                
-      <div className="person" id = '<%= r.id %>'' value="<%=r.height%>"></div>
-      <% }); %>
-      <div id="menu">
-        <div id="drag-window">
+    <div class="board">
+      <div class="menu">
         <div class='title'>Society Stimulator</div>
-      </div>
         <div id="toggle-form" >
           <button class = "show-plus-btn" id ='plus-btn'>
             <i class="fas fa-plus" ></i>
@@ -33,7 +27,7 @@
                 
                   <label for="name">NAME: </label>
                 
-          <input type="text" name="name" placeholder="" required/>
+          <input type="text" name="name" placeholder=""/>
         
       </div>
       <div class='ageForm'>
@@ -42,7 +36,7 @@
                 <label for="age">AGE: </label>
               
            
-          <input type="number" name="age" min="1" max="150" required/>
+          <input type="number" name="age" min="1" max="150"/>
         
       </div>
       <div class="heightForm">
@@ -51,7 +45,7 @@
         
        
           <input  type="range" name="heightInput" min = "0" max = "250" oninput="heightOutput.value = heightInput.value"/>
-          <output name="heightOutput" id="heightOutput">125</output> cm
+          <output name="heightOutput" id="heightOutput">173</output> cm
         
       </div>
           
@@ -75,7 +69,7 @@
               </div>
               <div class='typeForm'>
                 <div class="four col">
-                  <input type="radio" name="r1" id="r1" value="A" checked>
+                  <input type="radio" name="r1" id="r1" value="A"checked>
                   <label for="r1">
                     <h4>Type A</h4>
                   </label>
@@ -117,36 +111,25 @@
             
             <th>Age</th>
             <th>Height</th>
-            <th>Gender</th>
             <th>Type</th>
             
             <th><div></div></th>
           </tr>
           </thead>           
             <tbody>
-              <% rows.forEach(function(r) { %>
+            
+              <tr>
+                <td>Jill</td>
                 
-                <tr id ='<%= r.id %>''>  
-                  <td><%= r.name %></td>
-                  <td><%= r.age %></td>
-                  <td><%= r.height %></td>
-                  <td><%= r.gender %></td>
-                  <td><%= r.type %></td>
-                  
-
-                  <td>
-                    
-                    <button class="edit-btn" id="edit-btn" value='<%= r.id %>''>Edit Attributes</button>
+                <td>50</td>
+                <td>200</td>
+                <td>psychopath</td>
                 
-                    <form method="post" action = "/deleteperson/<%=r.id%>">
-                    <button class="delete-btn" id="delete-btn" type='submit'>Delete</button>			
-                  </form>
-                  </td>
-
-                
-                </tr>
-                <% }); %>
-              
+                <td>
+                  <button class="edit-btn" id="edit-btn">Edit Attributes</button>
+                  <button class="delete-btn" id="delete-btn">Delete</button>			
+                </td>
+              </tr>
               
              
                           
@@ -157,6 +140,6 @@
       </div>
     </div>
 
-    <script src="../../script1.js"></script>
+    <script src="./script1.js"></script>
   </body>
 </html>
